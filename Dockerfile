@@ -11,9 +11,22 @@ RUN apt-get -y update && apt-get install -y \
   couchdb \
   libjpeg-dev \
   zlib1g-dev \
-  libpng12-dev
+  libpng12-dev \
+  libpq-dev \
+  python-virtualenv
+
+
   
-  
+RUN git clone git://github.com/gpodder/mygpo.git
+
+RUN cd mygpo 
+
+RUN virtualenv env
+
+RUN ./env/bin/pip install -r requirements.txt
+
+
+
   
   
   
